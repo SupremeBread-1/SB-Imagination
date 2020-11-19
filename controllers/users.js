@@ -11,6 +11,8 @@ module.exports = {
     signOut,
     login,
     profile,
+    imgUpload,
+    uploading
 }
 
 function newUser(req,res) {
@@ -57,4 +59,13 @@ function signOut(req,res) {
         delete req.user;
         res.redirect('/');
     });
+}
+
+function imgUpload(req,res) {
+    // console.log(req.body);
+    res.render('users/newimage');
+}
+
+function uploading(req,res) {
+    User.findOneAndUpdate
 }
