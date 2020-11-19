@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SB Imagination</title>
+</head>
+<body>
+    <header>
+        <h1>SB Imagination</h1>
+        <%- include('./nav.ejs') %>
+    </header>
+    <div>
+        <form action="/" method="post">
+            <div>
+                input
+            </div>
+        </form>
+    </div>
+    <div>
+        <% if(galleryData) { %>
+            <div>
+                <div>
+                    <% galleryData.data.forEach(function(gall) { %>
+                        <img src="<%= gall.link %>.jpg" alt="<%= gall.title %>">
+                        <p><% gall.title %></p>
+                    <% }); %>
+                </div>
+            </div>
+        <% } else { %>
+            <h1>Don't Work</h1>
+        <% } %>
+    </div>
+</body>
+</html>
