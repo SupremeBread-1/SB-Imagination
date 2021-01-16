@@ -4,28 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SB Imagination</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script defer src="/js/script.js"></script>
 </head>
 <body>
-    <header>
-        <h1>SB Imagination</h1>
-        <%- include('./nav.ejs') %>
-    </header>
-    <div>
-        <form action="/" method="post">
-            <div>
-                <label for="search">Search</label>
-                <input type="text" name="search" id="searching">
-                <input type="submit" value="Go">
+    <div class="but-im-not-a-wrapper">
+        <div id="top-ad" class="ad_one ctr">
+            <img src="../images/banner1.jpg" alt="ad image" class="ctr">
+            <div id="xs" class="close">
+                
             </div>
-        </form>
+        </div>
+        <header>    
+            <%- include('./nav.ejs') %>
+        </header>
+        <div class="ad_two ctr">
+            <img src="../images/https___blogs-images.forbes.com_josephliu_files_2019_06_10-ferdinand-stohr-149422-unsplash-1200x298.jpg" alt="ad image" class="ctr">
+        </div>
     </div>
-    <div>
+
+    <div class="content-wrapper">
         <% if(galleryData) { %>
-            <div>
-                <div>
-                    <% galleryData.data.forEach(function(gall) { %>
-                        <img src="<%= gall.link %>.jpg" alt="<%= gall.title %>">
-                        <p><% gall.title %></p>
+            <div class="masonry">
+                <div class="card item">
+                    <% galleryData.forEach(function(gall) { %>  
+                        
+                        <% if(gall.images === undefined ) { %>
+                            <% if(gall.link === undefined) { %>
+                                <% console.log(gall); %>
+                            <% } else { %>
+                                <a href="<%= gall.link %>" target="_blank">
+                                    <div class="real-card">
+                                        <img src="<%= gall.link %>" alt="<%= gall.title %>">
+                                        <div class="title-wrap-thing">
+                                            <p class="words"><%= gall.title %></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            <% } %>
+                        <% } else { %>
+                            <% if (gall.images[0].type === 'video/mp4') { %>
+                                <a href="<%= gall.link %>" target="_blank">
+                                    <div class="real-card">
+                                        <video src="<%= gall.images[0].link%>" autoplay muted loop><%= gall.title %></video>
+                                        <div class="title-wrap-thing">
+                                            <p class="words"><%= gall.title %></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            <% } else { %>
+                                <a href="<%= gall.link %>" target="_blank">
+                                    <div class="real-card">
+                                        <img src="<%= gall.images[0].link %>" alt="<%= gall.title %>"> 
+                                        <div class="title-wrap-thing">
+                                            <p class="words"><%= gall.title %></p> 
+                                        </div>
+                                    </div>
+                                </a>                        
+                            <% } %>
+                        <% } %>
+                        
                     <% }); %>
                 </div>
             </div>
@@ -35,3 +73,7 @@
     </div>
 </body>
 </html>
+
+
+
+                        

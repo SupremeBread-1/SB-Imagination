@@ -1,13 +1,27 @@
-<nav>
-    <ul>
-        <li>
-            <a href="/users/new">Sign Up</a>
-        </li>
-        <li>
-            <a href="/users/signin">Login</a>
-        </li>
-        <!-- <li>
-            <a href=""></a>
-        </li> -->
-    </ul>
+<nav id="navigator">
+    <div class="nav-left">
+        <a href="/">
+            <h1>SB Imagination</h1>
+        </a>
+    </div>
+    <div class="nav-center ctr">
+        <form action="/search" method="post">
+            <div class="ctr">
+                <!-- <label for="search">Search</label> -->
+                <input type="text" name="search" id="searchit" class="searching" placeholder="Search" autocomplete="off">
+                <!-- <input class="search-butt" type="submit" value="Go"> -->
+                <button class="search-butt">
+                    <img src="https://s.imgur.com/desktop-assets/desktop-assets/icon-search.8d0f9b564a4659d48d8eca38b968a7f2.svg" alt="imgur-magnifyglass">
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="nav-right ctr right">
+        <div class="to-the-right">
+            <a href="/users/signin" class="butts">Sign In</a>
+            <a href="/users/new" class="butts">Sign Up</a>
+        </div>
+    </div>
+
 </nav>

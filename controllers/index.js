@@ -59,7 +59,7 @@ function index(req,res) {
   .then(function (response) {
   //   console.log(JSON.stringify(response.data));
   //   console.log(JSON.parse(response.data));
-  // console.log(response.data.data);
+  console.log(response.data.data.title);
   const galleryData = response.data.data;
   res.render('index', { galleryData : galleryData });
 
